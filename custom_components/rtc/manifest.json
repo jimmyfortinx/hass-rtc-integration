@@ -1,0 +1,13 @@
+{
+  "domain": "rtc",
+  "name": "RTC - Réseau de transport de la Capitale",
+  "config_flow": true,
+  "documentation": "https://www.home-assistant.io/integrations/rtc",
+  "requirements": [],
+  "ssdp": [],
+  "zeroconf": [],
+  "homekit": {},
+  "dependencies": [],
+  "codeowners": ["@jimmyfortinx"],
+  "iot_class": "cloud_polling"
+}

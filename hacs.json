@@ -1,0 +1,7 @@
+{
+  "name": "RTC - Réseau de transport de la Capitale",
+  "homeassistant": "1.26.2",
+  "hacs": "2022.7.7",
+  "iot_class": ["Cloud Poll"],
+  "render_readme": "true"
+}
