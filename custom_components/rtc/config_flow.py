@@ -15,12 +15,24 @@ from .const import DOMAIN
 
 _LOGGER = logging.getLogger(__name__)
 
+OPTION_ADD_STOP = "ADD_STOP"
+OPTION_REMOVE_STOPS = "REMOVE_STOPS"
+
 # TODO adjust the data schema to the data that you need
 STEP_USER_DATA_SCHEMA = vol.Schema(
     {
-        vol.Required("host"): str,
-        vol.Required("username"): str,
-        vol.Required("password"): str,
+        vol.Optional("options", default=OPTION_ADD_STOP): vol.In(
+            {
+                [OPTION_ADD_STOP]: OPTION_ADD_STOP,
+                [OPTION_REMOVE_STOPS]: OPTION_REMOVE_STOPS
+            }
+        ),
+    }
+)
+
+STEP_ADD_STOP_DATA_SCHEMA = vol.Schema(
+    {
+        vol.Required("stopNumber"): str,
     }
 )
 
@@ -80,6 +92,17 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             return self.async_show_form(
                 step_id="user", data_schema=STEP_USER_DATA_SCHEMA
             )
+
+        if "options" in user_input:
+            match user_input.options:
+                case[OPTION_ADD_STOP]:
+                    return self.async_show_form(
+                        step_id="add_stop", data_schema=STEP_ADD_STOP_DATA_SCHEMA
+                    )
+                case[OPTION_REMOVE_STOPS]:
+                    return self.async_show_form(
+                        step_id="remove_stops", data_schema=STEP_ADD_STOP_DATA_SCHEMA
+                    )
 
         errors = {}
 

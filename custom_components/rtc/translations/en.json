@@ -1,21 +1,30 @@
 {
-    "config": {
-        "abort": {
-            "already_configured": "Device is already configured"
-        },
-        "error": {
-            "cannot_connect": "Failed to connect",
-            "invalid_auth": "Invalid authentication",
-            "unknown": "Unexpected error"
-        },
-        "step": {
-            "user": {
-                "data": {
-                    "host": "Host",
-                    "password": "Password",
-                    "username": "Username"
-                }
-            }
+  "config": {
+    "abort": {
+      "already_configured": "Device is already configured"
+    },
+    "error": {
+      "cannot_connect": "Failed to connect",
+      "invalid_auth": "Invalid authentication",
+      "unknown": "Unexpected error"
+    },
+    "step": {
+      "user": {
+        "data": {
+          "options": "Options:",
+          "add_stop": "Add bus stop",
+          "remove_stop": "Remove bus stops"
         }
+      },
+      "add_stop": {
+        "title": "Add bus stop",
+        "data": {
+          "stopNumber": "Stop number"
+        }
+      },
+      "remove_stops": {
+        "title": "Remove bus stops"
+      }
     }
+  }
 }
