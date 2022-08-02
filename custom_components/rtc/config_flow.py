@@ -94,7 +94,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             )
 
         if "options" in user_input:
-            match user_input.options:
+            match user_input["options"]:
                 case[OPTION_ADD_STOP]:
                     return self.async_show_form(
                         step_id="add_stop", data_schema=STEP_ADD_STOP_DATA_SCHEMA
